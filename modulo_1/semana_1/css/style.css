@@ -1,0 +1,105 @@
+:root {
+  --backgroundColor: #dddd5a;
+  --mainMenuBackgroundColorHover: #b6b600;
+  --headerBackgroundColor: #ffffff4d;
+  --footerBackgroundColor: #16235e;
+}
+html,
+body,
+div {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  background-color: var(--backgroundColor);
+  letter-spacing: 1.5px;
+}
+p {
+  font-size: 14pt;
+}
+header {
+  background-color: var(--backgroundColor);
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+header .content_wrapper {
+  position: relative;
+  background-color: #ffffff4d;
+  padding: 0 50px;
+}
+header .content_wrapper img {
+  width: 100px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+  margin: auto 0;
+}
+header .content_wrapper nav {
+  float: right;
+}
+header .content_wrapper nav ul {
+  list-style: none;
+}
+header .content_wrapper nav ul li {
+  display: inline;
+  margin-left: 10px;
+  padding: 5px 20px;
+}
+header .content_wrapper nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+header .content_wrapper nav ul li:hover {
+  background-color: var(--mainMenuBackgroundColorHover);
+  border-radius: 7px;
+}
+header .content_wrapper nav ul li:hover a {
+  color: white;
+}
+main section {
+  padding: 0 80px;
+}
+main section#title_container {
+  padding: 0;
+  text-align: center;
+  height: 200px;
+  background: url(https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/header.jpg)
+    no-repeat;
+  background-attachment: local;
+  background-position: center;
+  /*
+    <background-image> -- define a imagem a ser utilizada com fundo. A imagem deverá sempre estar dentro da função url
+    <background-repeat> -- define o comportamento da imagem caso nao preencha toda a área onde estará contida
+    <background-attachment> --
+    <background-position> -- posiciona a imagem de acordo com o container.
+    Os valores de posicao podem ser encontrado em: https://www.w3schools.com/cssref/pr_background-position.asp
+  */
+}
+main h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  color: #a52a2a;
+  padding: 80px;
+  margin: 0;
+}
+main button {
+  border-radius: 10px;
+  padding: 10px;
+  border: solid 2px black;
+}
+main section #video_container iframe {
+  display: block;
+  margin: auto;
+}
+footer {
+  padding: 20px 80px;
+  margin-top: 20px;
+  background-color: var(--footerBackgroundColor);
+  color: #ffffff;
+  padding-top: 10px;
+}
