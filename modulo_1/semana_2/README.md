@@ -17,5 +17,6 @@ Os execícios consistem na aplicação dos conceitos de javascript apresentados 
 * exibição de janelas de confirmação através da função `confirm()`;
 * exibição de janelas solicitando entrada de dados através da função `prompt()`;
 * conversão de texto para numero através das funções `parseInt()`, ou `parseFloat()`, ou até mesmo através do uso do sinal `+` junto à string que se deseja converter. ex.: `+"10"`;
-* controle de fluxo utilizando `if/else`;
-* laço de repetição utilizando `for`;
+* operadores `unário`, `binário` e `ternário`;
+* controle de fluxo utilizando `if/else`, `switch/case`;
+* laço de repetição utilizando `for`, `while`, `do...while`;
