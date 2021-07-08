@@ -7,7 +7,6 @@ Nesta semana foi apresentado a história da criação do javascript, como foi cr
 Também foi apresentado o conceito de variáveis, tipos de variáveis, tipagem dinâmica, declaração de variáveis, conversão de string para number.
 
 
-
 ---
 Este diretório contém a resolução dos exercícios propostos no arquivo _exercicios_praticos_js.pdf_
 
