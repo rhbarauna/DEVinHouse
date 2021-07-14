@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./index.js" defer></script>
+  <title>Document</title>
+  <style>
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0
+    }
+
+    header {
+      padding: 10px 20px;
+    }
+
+    section {
+      padding: 0 50px;
+    }
+
+    input,
+    button,
+    select,
+    option {
+      padding: 10px;
+    }
+
+    #exec_2 .container div {
+      display: inline-block;
+    }
+
+    #exec_2 label,
+    #exec_2 input,
+    #exec_2 button {
+      margin-bottom: 10px;
+    }
+
+    #exec_2 label {
+      display: inline-block;
+      min-width: 170px;
+    }
+
+    #exec_2 input[type='number'] {
+      width: 50px;
+    }
+
+    #exec_2 button {
+      width: 40px;
+    }
+
+    #exec_3 h6 {
+      color: #a0a0a0;
+    }
+
+    #exec_5 .blink {
+      animation: blink-animation 1s steps(5, start) infinite;
+      -webkit-animation: blink-animation 1s steps(5, start) infinite;
+    }
+
+    #exec_6 #season {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    #exec_6 #season {
+      display: inline-block;
+      padding: 200px;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1em;
+      color: white;
+      text-shadow: 1px 2px 8px black
+    }
+
+    #exec_7 label {
+      display: inline-block;
+      width: 120px;
+    }
+
+    #exec_7 div {
+      margin-top: 10px;
+    }
+
+    @keyframes blink-animation {
+      to {
+        visibility: hidden;
+      }
+    }
+
+    @-webkit-keyframes blink-animation {
+      to {
+        visibility: hidden;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Semana 3</h1>
+  </header>
+  <hr>
+  <main>
+    <section id="exec_1">
+      <h3># 1 - Calcule automaticamente a idade. </h4>
+        <p>Faça uma página HTML contendo um label que exiba a mensagem “Insira sua data de nascimento”,
+          um campo de texto que só permita inserir data (dica: input type date) e um botão rotulado “calcular idade”.
+          <br />
+          Programe uma função a ser executada quando o usuário clicar no botão, que faça o cálculo da idade do usuário,
+          e então exiba a idade em um texto na página HTML.
+        </p>
+        <label for="birthdate_input">Insira sua data de nascimento: </label>
+        <input type="date" name="birthdateInput" id="birthdate_input">
+        <button id="calculateAge" onclick="calculateAge()">Calcular Idade</button>
+    </section>
+
+    <br /><br />
+
+    <section id="exec_2">
+      <h3># 2 - Construa uma calculadora simples.</h3>
+      <p> Faça uma página HTML contendo 2 campos de texto (dica: input type number),
+        para que o usuário possa inserir, em cada um, o valor que deseja calcular. <br />
+        Coloque também na sua página 4 botões, um indicando soma, outro subtração, outro multiplicação, e outro
+        divisão.<br />
+        Adicione um outro campo de texto, apenas leitura (readonly). <br />
+        Quando o usuário clicar no botão de soma (multiplicação, divisão ou subtração),
+        a sua página deve somar (multiplicar, dividir ou subtrair) os 2 valores inseridos pelo usuário e exibir o
+        resultado no campo de texto readonly. <br />
+        Programe essa interatividade utilizando JavaScript.
+      </p>
+      <div class='container'>
+        <div>
+          <label for="firstOperand">Insira o primeiro numero: </label>
+          <input type="number" id="firstOperand"> <br />
+          <label for="secondOperand">Insira o segundo numero: </label>
+          <input type="number" id="secondOperand">
+        </div>
+        <div>
+          <button onclick="plus()">+</button>
+          <button onclick="minus()">-</button>
+          <br>
+          <button onclick="times()">x</button>
+          <button onclick="division()">/</button>
+        </div>
+      </div>
+      <label for="calcResult">Resultado da operação: </label>
+      <input id="calcResult" readonly>
+    </section>
+
+    <br /><br />
+
+    <section id="exec_3">
+      <h3># 3 - Programe um verificador de números pares. </h3>
+      <p> Em uma página HTML, insira um campo de texto para que o usuário insira um número. Programe uma função em
+        JavaScript para verificar se o número inserido pelo usuário é par ou ímpar, e informe o usuário através de um
+        texto na página HTML.
+      </p>
+      <input type="number" onchange="evenOrOdd(this)" onkeydown="clearEvenOrOddResul()">
+      <span id="evenOddResult"></span>
+      <h6>* aperte enter ou click fora do input para obter o resultado</h6>
+
+    </section>
+
+    <br /><br />
+
+    <section id="exec_4">
+      <h3># 4 - Faça um relógio. </h3>
+      <p>Construa uma página HTML contendo um texto que informa o horário no momento de acesso, no formato “23:59”
+        (HH:mm).</p>
+      <span id="clock"></span>
+    </section>
+
+    <br /><br />
+
+    <section id="exec_5">
+      <h3># 5 - Faça um relógio que atualize automaticamente. </h3>
+      <p>Construa uma página HTML contendo um texto que informa o horário atual, no formato “23:59”, e que atualize
+        automaticamente o valor, sempre que mudar o horário.</p>
+      <span id="updatableClock"></span>
+    </section>
+
+    <br /><br />
+
+    <section id="exec_6">
+      <h3># 6 - Construa uma página que informe a estação do ano no dia de acesso.</h3>
+      <p>Sua página deve conter um texto e uma imagem, ambos representando a estação. Ao carregar a página, baseado na
+        data</p>
+      <div id="season">
+        <span></span>
+      </div>
+    </section>
+
+    <br /><br />
+
+    <section id="exec_7">
+      <h3># 7 - Faça uma página de “lista de mercado”.</h3>
+      <p>Sua página deve possibilitar ao usuário inserir itens em uma lista e exibir a lista atualizada a medida que
+        forem sendo adicionados novos itens. A página deve conter um rótulo (&lt;label&gt;) “Item a adicionar:” seguido
+        de um
+        campo de texto onde o usuário possa digitar o item. Deve conter também um botão “Adicionar”, que no momento do
+        clique do usuário deve inserir o item digitado na lista. Se o texto estiver vazio (length), deve mostrar uma
+        mensagem ao usuário solicitando a inserção de algum texto. A página também deve conter uma lista
+        (&lt;select&gt;),
+        que exibirá os itens adicionados pelo usuário.</p>
+      <label for="inputItem">Novo item:</label>
+      <input type="text" id="inputItem">
+      <button onclick="addItem()">Adicionar Item</button>
+      <div>
+        <label for="itemList">Lista de compras</label>
+        <select id="itemList"></select>
+      </div>
+    </section>
+
+    <br /><br />
+
+    <section id="exec_8">
+      <h3># 8 - Salve a lista de mercado.</h3>
+      <p> Utilizando a mesma página do exercício anterior, adicione um novo botão “Salvar lista”. Quando o usuário
+        clicar nesse botão, a lista de itens de mercado deve ser salva no Local Storage do navegador.</p>
+      <button onclick="saveList()">Salvar lista</button>
+    </section>
+
+    <br /><br />
+
+    <script>
+
+    </script>
+
+  </main>
+</body>
+
+</html>
