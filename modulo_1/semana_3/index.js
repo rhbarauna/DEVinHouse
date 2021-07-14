@@ -1,17 +1,28 @@
 // #  1 - Calcule automaticamente a idade. Faça uma página HTML contendo um label que exiba a mensagem “Insira sua data de nascimento”, um campo de texto que só permita inserir data (dica: input type date) e um botão rotulado “calcular idade”. Programe uma função a ser executada quando o usuário clicar no botão, que faça o cálculo da idade do usuário, e então exiba a idade em um texto na página HTML.
-function calculateAge(){
-  var birthdateInputValue = document.querySelector("#birthdate_input").value;
-  if(!birthdateInputValue) {
-    alert('Favor informar uma data válida');
-    return;
-  }
-  var birthdateObj = new Date(birthdateInputValue);
+function calculateAge(birthdate){
+  var birthdateObj = new Date(birthdate);
   var now = new Date();
   var age = now.getFullYear() - birthdateObj.getFullYear() - 1;
+  
   if(now.getMonth() >= birthdateObj.getMonth() && now.getUTCDate() >= birthdateObj.getUTCDate()) {
     age = now.getUTCFullYear() - birthdateObj.getUTCFullYear();
   }
 
+  return age;
+}
+
+function calculateAgeButtonAction(){
+  var birthdateInputValue = document.querySelector("#birthdate_input").value;
+  
+  if(!birthdateInputValue) {
+    alert('Favor informar uma data válida');
+    return;
+  }
+  var age = calculateAge(birthdateInputValue);
+  showAge(age);
+}
+
+function showAge(age) {
   var calculateAgeButton = document.querySelector("#calculateAge");
   var p = document.createElement('p')
   p.textContent = "Sua idade é " + age | " anos";
