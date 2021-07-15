@@ -172,7 +172,7 @@ function saveList() {
     itemListValues.push(listChildren[i].value);
   }
 
-  localStorage.setItem("shopList", itemListValues);
+  localStorage.setItem("shopList", JSON.stringify(itemListValues));
 }
 
 // 9 - Carregue uma lista salva anteriormente. Utilizando a mesma página dos 2 exercícios anteriores [link para os cards], crie um novo botão “Carregar lista”, que ao ser clicado deve buscar no Local Storage se existe uma lista de itens de mercado salva, e em caso positivo deve mostrar os itens no elemento da página. Caso não haja nenhuma lista previamente salva, deve informar o usuário “Não há itens salvos”.
