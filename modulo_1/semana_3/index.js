@@ -176,5 +176,63 @@ function saveList() {
 }
 
 // 9 - Carregue uma lista salva anteriormente. Utilizando a mesma página dos 2 exercícios anteriores [link para os cards], crie um novo botão “Carregar lista”, que ao ser clicado deve buscar no Local Storage se existe uma lista de itens de mercado salva, e em caso positivo deve mostrar os itens no elemento da página. Caso não haja nenhuma lista previamente salva, deve informar o usuário “Não há itens salvos”.
+function loadList() {
+  var storageList = localStorage.getItem("shopList");
+
+  if(!storageList) {
+    alert("Não há itens salvos");
+    return;
+  }
+  var itemList = document.getElementById("itemList");
+  var jsonList = JSON.parse(storageList);
+  
+  jsonList.forEach(function(item){
+    var newOption = document.createElement('option');
+    newOption.value = item;
+    newOption.textContent = item;
+    itemList.appendChild(newOption);
+  });
+}
+
 
 // 10 - Construa uma “calculadora” de P.A. e P.G. Na página HTML devem existir 2 campos de texto (dica: input type number): um rotulado (label) “valor inicial”, e outro rotulado “raíz”. Também deve ter 2 botões: um rotulado “Calcular P.A.” e outro rotulado “Calcular P.G.”. O evento click de cada botão deve chamar uma função que: verifica se os campos estão preenchidos (dica: length) e, se estiverem vazios, deve mostrar uma mensagem ao usuário pedindo para inserir os valores; caso os campos estejam preenchidos, deve calcular os 10 primeiros valores da sequência e exibir na tela. Relembrando: P.A. (Progressão Aritmética) é uma sequência numérica em que cada termo, a partir do segundo, é igual à soma do termo anterior com a raiz. Exemplo: Valor inicial = 1; raiz = 3; P.A. = 1, 4, 7, 10, 13, 16, 19, 22, 25, 28. P.G. (Progressão Geométrica) é como uma P.A., mas em vez de somar, multiplica-se a raiz. Exemplo: Valor inicial = 1; raiz = 3; P.G. = 1, 3, 9, 27, 81...
+function getFieldValue(fieldName, fieldId) {
+  var fieldValue = document.getElementById(fieldId).value;
+  if (!fieldValue) {
+    alert('Favor informar: ' + fieldName);
+    return;
+  }
+  return +fieldValue;
+}
+function execPaOrPg(initialValue, root, operation) {
+  var result = [initialValue];
+  for (var i = 0; i < 9; i++) {
+    var lastValue = result[result.length - 1];
+    result.push(operation(lastValue,root));
+  }
+  return result;
+}
+function calculate(operation) {
+  var paPgInitialValue = getFieldValue("Valor Inicial", "paPgValue");
+  var paPgRootValue = getFieldValue("Raiz", "paPgRoot");
+  
+  if(!paPgInitialValue || ! paPgRootValue) {
+    return;
+  }
+
+  return execPaOrPg(paPgInitialValue, paPgRootValue, operation);
+}
+function calculatePA() {
+  var resultPA = calculate(function(element, root) {return element + root;});
+  if(!resultPA) {
+    return;
+  }
+  alert("P.A. " + resultPA);
+}
+function calculatePG() {
+  var resultPG = calculate(function(element, root) {return element * root;});
+  if(!resultPG) {
+    return;
+  }
+  alert("P.G. " + resultPG);
+}
